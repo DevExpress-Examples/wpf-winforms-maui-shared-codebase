@@ -121,13 +121,13 @@ public class Product {
 - [DesktopClient/App.xaml.cs](.CS/DesktopClient/App.xaml.cs)
 - [MobileClient/MauiProgram.cs](.CS/MobileClient/MauiProgram.cs)
 
-## Documentation → [Add links to the documentation so the user can go back to docs.devexpress.com]
+## Documentation
 
 - [Get Started with DevExpress Controls for .NET Multi-platform App UI](https://docs.devexpress.com/MAUI/403249/get-started/get-started)
 - [Get Started with DevExpress WPF Controls](https://docs.devexpress.com/WPF/401166/dotnet-core-support/getting-started)
 
 
-## More Examples → [Add links to the related examples]
+## More Examples
 
 - [DevExpress Mobile UI for .NET MAUI](https://github.com/DevExpress-Examples/maui-demo-app)
 - [DevExpress Stocks App for .NET MAUI](https://github.com/DevExpress-Examples/maui-stocks-mini)
