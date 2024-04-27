@@ -37,7 +37,8 @@ Desktop and mobile clients reuse the following classes:
 - ReportService. Generates a report based on a selected order.
 
 We use Dependency Injection to introduce these services into desktop and mobile projects.
-**WPF:**
+
+WPF:
 ```cs
 protected override void OnStartup(StartupEventArgs e) {
     base.OnStartup(e);
@@ -56,7 +57,7 @@ protected override void OnStartup(StartupEventArgs e) {
 }
 ```
 
-**.NET MAUI:**
+.NET MAUI:
 ```cs
 public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder) {
     mauiAppBuilder.Services.AddTransient<OrdersViewModel>();
