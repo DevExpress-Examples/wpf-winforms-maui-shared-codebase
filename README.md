@@ -8,7 +8,7 @@
 
 Example description → [Add the description in a free form and describe what the example is about]
 
-![Demo Video](./img/DemoVideo.mp4)
+![Demo Video](./img/DemoVideo.gif)
 
 ## Implementation Details
 
