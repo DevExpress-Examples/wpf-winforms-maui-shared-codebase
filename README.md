@@ -36,7 +36,7 @@ Desktop and mobile clients reuse the following classes:
 - OrderDataService. Incorporates logic to communicate with the Web API service.
 - ReportService. Generates a report based on a selected order.
 
-We use Dependency Injection to introduce these services into desktop and mobile projects.
+We use [Dependency Injection](https://community.devexpress.com/blogs/wpf/archive/2022/02/07/dependency-injection-in-a-wpf-mvvm-application.aspx) to introduce these services into desktop and mobile projects.
 
 WPF:
 ```cs
