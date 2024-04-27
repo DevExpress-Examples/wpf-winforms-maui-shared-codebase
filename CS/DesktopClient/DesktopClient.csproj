@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="DevExpress.Wpf.Grid" Version="23.2.5" />
+    <PackageReference Include="DevExpress.Wpf.Reporting" Version="23.2.5" />
+    <PackageReference Include="DevExpress.Wpf.Ribbon" Version="23.2.5" />
+    <PackageReference Include="DevExpress.Wpf.ThemesLW" Version="23.2.5" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client.Shared\Client.Shared.csproj" />
+    <ProjectReference Include="..\DataModel\DataModel.csproj" />
+  </ItemGroup>
+
+</Project>

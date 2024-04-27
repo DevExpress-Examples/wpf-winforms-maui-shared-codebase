@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+    	<OutputType>Exe</OutputType>
+		<UseMaui>true</UseMaui>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SingleProject>true</SingleProject>
+		<RootNamespace>MobileClient</RootNamespace>
+
+		<!-- Display name -->
+		<ApplicationTitle>MobileClient</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.MobileClient</ApplicationId>
+		<ApplicationIdGuid>8DDA07EF-B1B9-4A37-AB9D-CFD0A7EB8A44</ApplicationIdGuid>
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<UseInterpreter Condition="$(TargetFramework.Contains('-ios')) AND '$(Configuration)' == 'Release'">True</UseInterpreter>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\Resources\values\colors.xml" />
+	  <AndroidResource Remove="Platforms\Android\Resources\values\styles.xml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Include="Platforms\Android\Resources\values\colors.xml" />
+	  <MauiXaml Include="Platforms\Android\Resources\values\styles.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DevExpress.Drawing.Skia" Version="23.2.5" />
+		<PackageReference Include="DevExpress.Maui.Pdf" Version="23.2.5" />
+		<PackageReference Include="DevExpress.Reporting.Core" Version="23.2.5" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DevExpress.Maui.Controls" Version="23.2.5" />
+		<PackageReference Include="DevExpress.Maui.Core" Version="23.2.5" />
+		<PackageReference Include="DevExpress.Maui.CollectionView" Version="23.2.5" />
+		<PackageReference Include="DevExpress.Maui.Scheduler" Version="23.2.5" />
+		<PackageReference Include="SkiaSharp" Version="2.88.8" />
+		<PackageReference Include="SkiaSharp.HarfBuzz" Version="2.88.8" />
+		<ProjectReference Include="..\Client.Shared\Client.Shared.csproj" />
+		<ProjectReference Include="..\DataModel\DataModel.csproj" />
+		<TrimmableAssembly Include="DevExpress.Data.v23.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Views\OrdersPage.xaml.cs">
+	    <DependentUpon>OrdersPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Views\InvoiceReportPreviewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+</Project>

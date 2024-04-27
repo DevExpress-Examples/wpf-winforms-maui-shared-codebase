@@ -1,0 +1,50 @@
+﻿<dx:ThemedWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:DesktopClient.ViewModel"
+        xmlns:local="clr-namespace:DesktopClient"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        x:Class="DesktopClient.OrdersWindow"
+        Icon="{dx:DXImage 'SvgImages/Outlook Inspired/ProductOrderDetail-21.svg'}"
+        mc:Ignorable="d"
+        Title="CRM Orders" Height="700" Width="1100" DataContext="{local:DISource Type=viewModels:OrdersViewModel}">
+    <DockPanel>
+        <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2019" MenuIconStyle="Color">
+            <dxr:RibbonPage Caption="Home">
+                <dxr:RibbonPageGroup Caption="Tools">
+                    <dxb:BarButtonItem Content="Invoice Report" Command="{Binding ShowInvoiceReportPreviewCommand}" LargeGlyph="{dx:DXImage 'SvgImages/Business Objects/BO_Report.svg'}"/>
+                </dxr:RibbonPageGroup>
+            </dxr:RibbonPage>
+        </dxr:RibbonControl>
+        <dx:LoadingDecorator IsSplashScreenShown="{Binding IsLoading}">
+            <dxg:GridControl ItemsSource="{Binding Orders}" CurrentItem="{Binding SelectedOrder, Mode=TwoWay}" >
+                <dxg:GridColumn FieldName="Id"/>
+                <dxg:GridColumn FieldName="State"/>
+                <dxg:GridColumn FieldName="Customer.FullName" Header="Customer"/>
+                <dxg:GridColumn FieldName="OrderDate"/>
+                <dxg:GridColumn FieldName="ItemsCount"/>
+                <dxg:GridControl.DetailDescriptor>
+                    <dxg:DataControlDetailDescriptor ItemsSourcePath="Items">
+                        <dxg:GridControl>
+                            <dxg:GridColumn FieldName="Id"/>
+                            <dxg:GridColumn FieldName="Product.Name" Header="Product Name"/>
+                            <dxg:GridColumn FieldName="Product.UnitPrice" Header="Product Unit Price"/>
+                            <dxg:GridColumn FieldName="Quantity"/>
+                            <dxg:GridControl.View>
+                                <dxg:TableView AutoWidth="True" AllowEditing="False"/>
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+                    </dxg:DataControlDetailDescriptor>
+                </dxg:GridControl.DetailDescriptor>
+                <dxg:GridControl.View>
+                    <dxg:TableView AutoWidth="True" AllowEditing="False"/>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </dx:LoadingDecorator>
+    </DockPanel>
+</dx:ThemedWindow>
