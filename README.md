@@ -116,10 +116,10 @@ public class Product {
 ## Files to Review
 
 - [OrderDataService.cs](./CS/Client.Shared/OrderDataService.cs)
-- [ReportService.cs](.CS/Client.Shared/ReportService.cs)
-- [OrdersController.cs](.CS/WebApiService/Controllers/OrdersController.cs)
-- [DesktopClient/App.xaml.cs](.CS/DesktopClient/App.xaml.cs)
-- [MobileClient/MauiProgram.cs](.CS/MobileClient/MauiProgram.cs)
+- [ReportService.cs](./CS/Client.Shared/ReportService.cs)
+- [OrdersController.cs](./CS/WebApiService/Controllers/OrdersController.cs)
+- [DesktopClient/App.xaml.cs](./CS/DesktopClient/App.xaml.cs)
+- [MobileClient/MauiProgram.cs](./CS/MobileClient/MauiProgram.cs)
 
 ## Documentation
 
