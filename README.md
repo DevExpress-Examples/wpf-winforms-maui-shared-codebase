@@ -1,12 +1,11 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/792476725/23.2.5%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1230298)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# WPF & .NET MAUI - How to Share Code Between Desktop and Mobile Projects
+# WPF & .NET MAUI - Share Code Between Desktop and Mobile Projects
 
-In this example, we use DevExpress WPF and .NET MAUI component to create a desktop and mobile application with a shared codebase. The application displays orders loaded from a Web API and allows users to generate a report.
+This example uses DevExpress WPF and .NET MAUI components to create a desktop and mobile application with a shared codebase. The application displays orders loaded from a Web service and allows users to generate a report.
 
 ![Demo Video](./img/DemoVideo.gif)
 
@@ -17,28 +16,31 @@ In this example, we use DevExpress WPF and .NET MAUI component to create a deskt
 
 ## Implementation Details
 
-The general architecture is demonstrated on the following image:
+The following scheme illustrates the application architecture:
+
 ![Application Architecture](./img/Architecture.jpg)
 
 The application includes the following projects:
-- **Client.Shared**. Client-side services, common helpers.
+- **Client.Shared**. Contains client-side services and common helpers.
 - **DataModel**. A model for database objects.
 - **DesktopClient**. A WPF application.
-- **MobileClient**. A .NET MAUI application
+- **MobileClient**. A .NET MAUI application.
 - **WebApiService**. A web service that handles access to a database.
 
 > **Note**:
-> Although this example doesn't include authentication and role-based data access, you can generate a project with this functionality using the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml).
+> Although this example does not include authentication and role-based data access, you can use the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) to generate a project with this functionality.
 
 ### Shared Client Classes
 
 Desktop and mobile clients reuse the following classes:
-- OrderDataService. Incorporates logic to communicate with the Web API service.
-- ReportService. Generates a report based on a selected order.
+
+- `OrderDataService`. Incorporates logic to communicate with the Web API service.
+- `ReportService`. Generates a report based on the selected order.
 
 We use [Dependency Injection](https://community.devexpress.com/blogs/wpf/archive/2022/02/07/dependency-injection-in-a-wpf-mvvm-application.aspx) to introduce these services into desktop and mobile projects.
 
-WPF:
+#### WPF
+
 ```cs
 protected override void OnStartup(StartupEventArgs e) {
     base.OnStartup(e);
@@ -57,7 +59,8 @@ protected override void OnStartup(StartupEventArgs e) {
 }
 ```
 
-.NET MAUI:
+#### .NET MAUI
+
 ```cs
 public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder) {
     mauiAppBuilder.Services.AddTransient<OrdersViewModel>();
@@ -83,6 +86,7 @@ public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuil
 ### Shared Web API Service
 
 The Web API service includes basic endpoints to retrieve orders from a database connected with Entity Framework Core:
+
 ```cs
 public class OrdersController : ControllerBase {
     //...
