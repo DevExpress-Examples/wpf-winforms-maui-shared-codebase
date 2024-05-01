@@ -24,7 +24,8 @@ The following scheme illustrates the application architecture:
 The application includes the following projects:
 - **Client.Shared**. Contains client-side services and common helpers.
 - **DataModel**. A model for database objects.
-- **DesktopClient**. A WPF application.
+- **WPFDesktopClient**. A WPF application.
+- **WinFormsDesktopClient**. A WinForms application.
 - **MobileClient**. A .NET MAUI application.
 - **WebApiService**. A web service that handles access to a database.
 
@@ -60,6 +61,27 @@ protected override void OnStartup(StartupEventArgs e) {
 }
 ```
 
+#### WinForms
+
+```cs
+static void Main() {
+    //...
+    ContainerBuilder builder = new ContainerBuilder();
+    builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+    builder.RegisterType<ReportService>().As<IReportService>().SingleInstance();
+    builder.RegisterInstance<IOrderDataService>(new OrderDataService(new HttpClient() {
+        BaseAddress = new Uri("https://localhost:7033/"),
+        Timeout = new TimeSpan(0, 0, 10)
+    }));
+    container = builder.Build();
+    MVVMContextCompositionRoot.ViewModelCreate += (s, e) =>
+    {
+        e.ViewModel = container.Resolve(e.RuntimeViewModelType);
+    };
+    //...
+}
+```
+
 #### .NET MAUI
 
 ```cs
@@ -83,6 +105,7 @@ public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuil
     return mauiAppBuilder;
 }
 ```
+
 
 ### Shared Web API Service
 
