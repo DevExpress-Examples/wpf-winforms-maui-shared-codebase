@@ -4,9 +4,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# WPF & .NET MAUI - Share Code Between Desktop and Mobile Projects
+# WPF/WinForms & .NET MAUI - Share Code Between Desktop and Mobile Projects
 
-This example uses DevExpress [WPF](https://www.devexpress.com/products/net/controls/wpf/) and [.NET MAUI](https://www.devexpress.com/maui/) components to create a desktop and mobile application with a shared codebase. The application displays orders loaded from a Web service and allows users to generate a [report](https://www.devexpress.com/subscriptions/reporting/).
+This example uses DevExpress [WPF](https://www.devexpress.com/products/net/controls/wpf/)/[WinForms](https://www.devexpress.com/products/net/controls/winforms/) and [.NET MAUI](https://www.devexpress.com/maui/) components to create a desktop and mobile application with a shared codebase. The application displays orders loaded from a Web service and allows users to generate a [report](https://www.devexpress.com/subscriptions/reporting/).
 
 ![Demo Video](./img/DemoVideo.gif)
 
@@ -153,6 +153,7 @@ public class Product {
 
 - [Get Started with DevExpress Controls for .NET Multi-platform App UI](https://docs.devexpress.com/MAUI/403249/get-started/get-started)
 - [Get Started with DevExpress WPF Controls](https://docs.devexpress.com/WPF/401166/dotnet-core-support/getting-started)
+- [Get Started with DevExpress WinForms Controls](https://docs.devexpress.com/WindowsForms/7874/winforms-controls#getting-started)
 
 
 ## More Examples
