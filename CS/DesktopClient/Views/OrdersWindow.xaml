@@ -8,6 +8,7 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         x:Class="DesktopClient.OrdersWindow"
         Icon="{dx:DXImage 'SvgImages/Outlook Inspired/ProductOrderDetail-21.svg'}"
@@ -33,7 +34,11 @@
                         <dxg:GridControl>
                             <dxg:GridColumn FieldName="Id"/>
                             <dxg:GridColumn FieldName="Product.Name" Header="Product Name"/>
-                            <dxg:GridColumn FieldName="Product.UnitPrice" Header="Product Unit Price"/>
+                            <dxg:GridColumn FieldName="Product.UnitPrice" Header="Product Unit Price">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings Mask="C" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="Quantity"/>
                             <dxg:GridControl.View>
                                 <dxg:TableView AutoWidth="True" AllowEditing="False"/>

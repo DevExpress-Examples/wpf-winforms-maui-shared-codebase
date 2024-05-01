@@ -9,7 +9,6 @@ using System.Text.Json;
 
 namespace Client.Shared {
     public class OrderDataService : IOrderDataService {
-        //readonly HttpClient client = new HttpClient() { BaseAddress = new Uri("http://localhost:5072") };
         readonly HttpClient client;
         public OrderDataService(HttpClient httpClient) {
             client = httpClient;
@@ -17,7 +16,6 @@ namespace Client.Shared {
         public async Task<List<Order>> GetOrdersAsync() {
             List<Order> orders = null;
             try {
-                //string result = await client.GetStringAsync(@"https://10.0.2.2:7033/api/Orders");
                 HttpResponseMessage response = await client.GetAsync("api/Orders");
                 if (response.IsSuccessStatusCode) {
                     orders = await response.Content.ReadAsAsync<List<Order>>();

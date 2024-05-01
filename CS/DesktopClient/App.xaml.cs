@@ -19,17 +19,17 @@ namespace DesktopClient {
             CompatibilitySettings.UseLightweightThemes = true;
             ApplicationThemeHelper.ApplicationThemeName = LightweightTheme.Win11Light.Name;
         }
-
+        IContainer container;
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
-            var builder = new ContainerBuilder();
+            ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
             builder.RegisterType<ReportService>().As<IReportService>().SingleInstance();
             builder.RegisterInstance<IOrderDataService>(new OrderDataService(new HttpClient() {
                 BaseAddress = new Uri("https://localhost:7033/"),
                 Timeout = new TimeSpan(0, 0, 10)
             }));
-            IContainer container = builder.Build();
+            container = builder.Build();
             DISource.Resolver = (type) =>
             {
                 return container.Resolve(type);
