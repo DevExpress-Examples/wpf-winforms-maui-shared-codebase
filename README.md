@@ -20,7 +20,7 @@ This example uses a loosely coupled architecture to share codebase between deskt
 
 The following schema outlines application architecture:
 
-![Application Architecture](./img/Architecture.jpg)
+![Application Architecture](./img/Scheme.jpg)
 
 The application includes the following projects:
 - **Client.Shared**. Contains client-side services and common helpers.
