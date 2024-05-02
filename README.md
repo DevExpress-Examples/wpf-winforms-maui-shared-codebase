@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# WPF/WinForms & .NET MAUI - Share Code Between Desktop and Mobile Projects
+# WPF or WinForms & .NET MAUI - Share Code Between Desktop and Mobile Projects
 
 This example uses a loosely coupled architecture to share codebase between desktop ([WPF](https://www.devexpress.com/products/net/controls/wpf/) or [WinForms](https://www.devexpress.com/products/net/controls/winforms/)) and mobile ([.NET MAUI](https://www.devexpress.com/maui/)) UI clients. The application displays orders loaded from a Web service and allows users to generate a [report](https://www.devexpress.com/subscriptions/reporting/).
 
@@ -12,25 +12,26 @@ This example uses a loosely coupled architecture to share codebase between deskt
 
 ## Run Project
 
-1. Start the WebApiService project without debugging.
-2. Start the DesktopClient or MobileClient projects.
+1. Rebuild the solution.
+2. Start the WebApiService project without debugging.
+3. Start the WPFDesktopClient, WinFormsDesktopClient or MobileClient project.
 
 ## Implementation Details
 
-The following scheme illustrates the application architecture:
+The following schema outlines application architecture:
 
 ![Application Architecture](./img/Architecture.jpg)
 
 The application includes the following projects:
 - **Client.Shared**. Contains client-side services and common helpers.
 - **DataModel**. A model for database objects.
-- **WPFDesktopClient**. A WPF application.
-- **WinFormsDesktopClient**. A WinForms application.
-- **MobileClient**. A .NET MAUI application.
-- **WebApiService**. A web service that handles access to a database.
+- **WPFDesktopClient** - WPF application.
+- **WinFormsDesktopClient** - WinForms application.
+- **MobileClient** - .NET MAUI application.
+- **WebApiService** - a web service that handles access to a database.
 
 > **Note**:
-> Although this example does not include authentication and role-based data access, you can use the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) to generate a project with this functionality.
+> Although this example does not include authentication and role-based data access, you can use the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) o generate a project with this capability.
 
 ### Shared Client Classes
 
