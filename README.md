@@ -98,7 +98,7 @@ public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder) {
 }
 public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder) {
     mauiAppBuilder.Services.AddTransient<IOrderDataService>(sp => new OrderDataService(new HttpClient(MyHttpMessageHandler.GetMessageHandler()) {
-        //OS-specific URIs are used because Android and iOS emulators use different addresses to access the local machine: https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/local-web-services?view=net-maui-7.0#local-machine-address
+        //OS-specific URLs are used because Android and iOS emulators use different addresses to access the local machine: https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/local-web-services?view=net-maui-7.0#local-machine-address
         BaseAddress = new Uri(ON.Platform(android: "https://10.0.2.2:7033/", iOS: "https://localhost:7033/")),
         Timeout = new TimeSpan(0, 0, 10)
     })); ;
