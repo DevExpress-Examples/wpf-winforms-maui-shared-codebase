@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiService", "WebApiService\WebApiService.csproj", "{673D7A5B-356D-41FF-B63A-1D52A07E0DE0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileClient", "MobileClient\MobileClient.csproj", "{75F6E700-2EBB-4FEB-8786-2937D16D51FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiService", "WebApiService\WebApiService.csproj", "{673D7A5B-356D-41FF-B63A-1D52A07E0DE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFDesktopClient", "DesktopClient\WPFDesktopClient.csproj", "{72698C66-3BDA-4403-9898-2BEFF6D7BFE5}"
 EndProject
