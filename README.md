@@ -31,7 +31,7 @@ The application includes the following projects:
 - **WebApiService** - a web service that handles access to a database.
 
 > **Note**:
-> Although this example does not include authentication and role-based data access, you can use the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) o generate a project with this capability.
+> Although this example does not include authentication and role-based data access, you can use the free [DevExpress Web API Service](https://www.devexpress.com/products/net/application_framework/security-web-api-service.xml) to generate a project with this capability.
 
 ### Shared Client Classes
 
