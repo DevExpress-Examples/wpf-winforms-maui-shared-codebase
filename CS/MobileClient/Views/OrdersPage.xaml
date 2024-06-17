@@ -1,9 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
-             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
-             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
-             xmlns:dxcv="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView"
+             xmlns:dx="http://schemas.devexpress.com/maui"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:viewModels="clr-namespace:MobileClient.ViewModels"
              xmlns:model="clr-namespace:DataModel;assembly=DataModel"
@@ -25,16 +22,16 @@
         </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="Auto, *" BackgroundColor="{dx:ThemeColor Key=Surface}" IgnoreSafeArea="True">
-        <dxe:FilterChipGroup ItemsSource="{Binding PredefinedFilters}" SelectedItems="{Binding SelectedFilters, Mode=TwoWay}" x:Name="filtersChipGroup" IsMultiline="False" DisplayMember="DisplayText" Padding="10" />
-        <dxco:ShimmerView IsLoading="{Binding IsDataLoading}" Grid.Row="1">
-            <dxcv:DXCollectionView x:Name="ordersCollection"
+        <dx:FilterChipGroup ItemsSource="{Binding PredefinedFilters}" SelectedItems="{Binding SelectedFilters, Mode=TwoWay}" x:Name="filtersChipGroup" IsMultiline="False" DisplayMember="DisplayText" Padding="10" />
+        <dx:ShimmerView IsLoading="{Binding IsDataLoading}" Grid.Row="1">
+            <dx:DXCollectionView x:Name="ordersCollection"
                 ItemsSource="{Binding Orders}"
                 SelectionMode="Single"
                 SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
                 FilterString="{Binding Filter}"
                 Scrolled="ordersCollection_Scrolled"
                 Tap="ordersCollection_Tap">
-                <dxcv:DXCollectionView.ItemTemplate>
+                <dx:DXCollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type model:Order}">
                         <dx:DXBorder CornerRadius="14" BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}" Margin="16,8">
                             <dx:DXStackLayout Padding="16,16,16,12" ItemSpacing="8">
@@ -57,9 +54,9 @@
                             </dx:DXStackLayout>
                         </dx:DXBorder>
                     </DataTemplate>
-                </dxcv:DXCollectionView.ItemTemplate>
-            </dxcv:DXCollectionView>
-            <dxco:ShimmerView.LoadingView>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
+            <dx:ShimmerView.LoadingView>
                 <Grid>
                     <Grid RowDefinitions="130,130,130" RowSpacing="10" Padding="20">
                         <Rectangle Style="{StaticResource shimmerRectangle}"/>
@@ -67,16 +64,16 @@
                         <Rectangle Style="{StaticResource shimmerRectangle}" Grid.Row="2"/>
                     </Grid>
                 </Grid>
-            </dxco:ShimmerView.LoadingView>
-        </dxco:ShimmerView>
-        <dxco:BottomSheet HalfExpandedRatio="0.4" x:Name="detailInfoBottomSheet" IsModal="False">
+            </dx:ShimmerView.LoadingView>
+        </dx:ShimmerView>
+        <dx:BottomSheet HalfExpandedRatio="0.4" x:Name="detailInfoBottomSheet" IsModal="False">
             <dx:DXDockLayout>
                 <dx:DXButton Icon="pdfexport" Content="Generate Invoice (PDF)" Style="{StaticResource bottomSheetActionButton}" 
                              Clicked="OnGenerateReportClick"
                              Command="{Binding NavigateToInvoiceReportCommand}" dx:DXDockLayout.Dock="Top" Margin="16" />
                 <BoxView dx:DXDockLayout.Dock="Top" HeightRequest="1" Color="{dx:ThemeColor Key=OutlineVariant}" />
                 <Label dx:DXDockLayout.Dock="Top" Text="Ordered items:" FontSize="16" FontAttributes="Bold" Margin="16"/>
-                <dxcv:DXCollectionView
+                <dx:DXCollectionView
                         dx:DXDockLayout.Dock="Top"
                         IsScrollBarVisible="False"
                         ItemsSource="{Binding SelectedOrder.Items}"
@@ -84,7 +81,7 @@
                         ItemSeparatorColor="{dx:ThemeColor Key=OutlineVariant}"
                         ItemSeparatorThickness="1" ItemSpacing="5" Margin="16,0"
                         TapCommand="{Binding ItemTapCommand}">
-                    <dxcv:DXCollectionView.ItemTemplate>
+                    <dx:DXCollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,*" HeightRequest="56" Padding="12,0,0,0">
                                 <Label Text="{Binding Product.Name}" FontSize="16" TextColor="{dx:ThemeColor Key=OnSurface}" VerticalOptions="End" />
@@ -100,9 +97,9 @@
                                     TextColor="{dx:ThemeColor Key=OnSurface}" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="1" Grid.RowSpan="2"/>
                             </Grid>
                         </DataTemplate>
-                    </dxcv:DXCollectionView.ItemTemplate>
-                </dxcv:DXCollectionView>
+                    </dx:DXCollectionView.ItemTemplate>
+                </dx:DXCollectionView>
             </dx:DXDockLayout>
-        </dxco:BottomSheet>
+        </dx:BottomSheet>
     </Grid>
 </ContentPage>

@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxpdf="clr-namespace:DevExpress.Maui.Pdf;assembly=DevExpress.Maui.Pdf"
+             xmlns:dx="http://schemas.devexpress.com/maui"
              xmlns:viewModels="clr-namespace:MobileClient.ViewModels"
-             xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              x:Class="MobileClient.Views.InvoiceReportPreviewPage"
              Title="Invoice Preview">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Share" Command="{Binding ShareReportCommand}"/>
     </ContentPage.ToolbarItems>
-    <dxc:ShimmerView IsLoading="{Binding IsReportGenerating}">
-        <dxc:ShimmerView.LoadingView>
+    <dx:ShimmerView IsLoading="{Binding IsReportGenerating}">
+        <dx:ShimmerView.LoadingView>
             <Grid RowDefinitions="50,*,*" RowSpacing="10" Padding="20">
                 <Rectangle Style="{StaticResource shimmerRectangle}"/>
                 <Rectangle Style="{StaticResource shimmerRectangle}" Grid.Row="1"/>
                 <Rectangle Style="{StaticResource shimmerRectangle}" Grid.Row="2"/>
             </Grid>
-        </dxc:ShimmerView.LoadingView>
-        <dxpdf:PdfViewer DocumentSource="{Binding ReportFilePath}" ShowToolbar="False"/>
-    </dxc:ShimmerView>
+        </dx:ShimmerView.LoadingView>
+        <dx:PdfViewer DocumentSource="{Binding ReportFilePath}" ShowToolbar="False"/>
+    </dx:ShimmerView>
 </ContentPage>

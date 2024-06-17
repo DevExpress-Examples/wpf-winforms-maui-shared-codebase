@@ -17,6 +17,11 @@ namespace MobileClient {
                 .RegisterViews()
                 .RegisterAppServices()
                 .UseDevExpress(useLocalization: true)
+                .UseDevExpressCollectionView()
+                .UseDevExpressControls()
+                .UseDevExpressEditors()
+                .UseDevExpressPdf()
+                .UseDevExpressScheduler()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
