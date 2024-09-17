@@ -7,7 +7,9 @@
 
 # WPF or WinForms & .NET MAUI - Share Code Between Desktop and Mobile Projects
 
-This example uses a loosely coupled architecture to share codebase between desktop ([WPF](https://www.devexpress.com/products/net/controls/wpf/) or [WinForms](https://www.devexpress.com/products/net/controls/winforms/)) and mobile ([.NET MAUI](https://www.devexpress.com/maui/)) UI clients. The application displays orders loaded from a Web service and allows users to generate a [report](https://www.devexpress.com/subscriptions/reporting/).
+This example uses a loosely coupled architecture to share codebase between desktop ([WPF](https://www.devexpress.com/products/net/controls/wpf/) or [WinForms](https://www.devexpress.com/products/net/controls/winforms/)) and mobile ([.NET MAUI](https://www.devexpress.com/maui/)) UI clients. The application displays orders loaded from a Web service and allows users to generate a [report](https://www.devexpress.com/subscriptions/reporting/). For more information, review the following blog posts:
+ - [Choosing a Framework/App Architecture for Desktop & Mobile Cross-Platform Apps](https://community.devexpress.com/blogs/mobile/archive/2024/05/02/choosing-a-framework-and-app-architecture-for-desktop-and-mobile-cross-platform-apps.aspx)
+ - [Modern Desktop Apps and Their Complex Architectures](https://community.devexpress.com/blogs/mobile/archive/2024/05/02/choosing-a-framework-and-app-architecture-for-desktop-and-mobile-cross-platform-apps.aspx)
 
 ![Demo Video](./img/DemoVideo.gif)
 
