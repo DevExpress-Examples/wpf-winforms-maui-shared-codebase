@@ -5,6 +5,7 @@ using DevExpress.Maui.Core;
 using MobileClient.Services;
 using MobileClient.ViewModels;
 using MobileClient.Views;
+using NavigationService = MobileClient.Services.NavigationService;
 
 namespace MobileClient {
     public static class MauiProgram {
