@@ -57,6 +57,7 @@
     <PackageReference Include="SkiaSharp.HarfBuzz" Version="2.88.8" />
     <ProjectReference Include="..\Client.Shared\Client.Shared.csproj" />
     <ProjectReference Include="..\DataModel\DataModel.csproj" />
+    <PackageReference Include="DevExpress.Data" Version="24.1.*" />
     <TrimmableAssembly Include="DevExpress.Data.v24.1" />
   </ItemGroup>
   <ItemGroup>
