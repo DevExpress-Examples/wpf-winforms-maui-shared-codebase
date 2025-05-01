@@ -4,7 +4,7 @@
              x:Class= "MobileClient.App">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+            <ResourceDictionary Source="Resources/Styles/Colors.xaml" /> 
             <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
         </ResourceDictionary>
     </Application.Resources>
